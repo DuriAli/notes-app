@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       { path: '', component: NotesListPageComponent },
       { path: 'new-note', component: NewNotePageComponent },
-  ],
+    ],
   },
 ];
 
