@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "notes-app"
+  "defaultProject": "notes-app",
+  "cli": {
+    "analytics": "2ceca80e-a93d-4d67-8404-50dd3994f599"
+  }
 }
