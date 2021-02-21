@@ -1,0 +1,36 @@
+.notes-list {
+  height: 70vh;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+
+  .card {
+    padding: 10px;
+    padding-bottom: 15px;
+    max-width: 400px;
+    margin-bottom: 15px;
+    .card-content {
+      padding: 15px;
+      max-height: 120px;
+      max-width: 400px;
+      word-wrap: break-word;
+      overflow-y: hidden;
+    }
+  }
+}
+
+.add-list {
+  text-align: center;
+}
+
+.column.is-half {
+  width: fit-content;
+}
+
+.field {
+  width: 400px;
+  input {
+    border: none;
+  }
+}
