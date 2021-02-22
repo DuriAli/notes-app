@@ -1,0 +1,18 @@
+.card-footer-item {
+    cursor: pointer;
+    &.has-background-primary {
+      &:hover {
+        color: white;
+      }
+    }
+    &.has-background-light {
+      &:hover {
+        color: hsl(348, 86%, 61%)
+      }
+    }
+  }
+  
+  
+  .container{
+      margin-top: 100px;
+  }

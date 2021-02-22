@@ -1,7 +1,7 @@
-<!-- <div class="container">
+<div class="container">
   <div class="card">
     <div class="card-header">
-      <p class="card-header-title">New Note</p>
+      <p class="card-header-title">{{ title }}</p>
     </div>
     <div class="card-content">
       <div class="field">
@@ -12,6 +12,7 @@
             type="text"
             placeholder="Note Title"
             required
+            #noteTitle
           />
         </div>
       </div>
@@ -23,23 +24,22 @@
             placeholder="Textarea "
             rows="10"
             required
+            #noteBody
           ></textarea>
         </div>
       </div>
       <div class="field is-grouped is-grouped-centered">
         <div class="control">
-          <button class="button is-link">Submit</button>
+          <button class="button is-link" type="submit" (click)="submitButtonClick(noteTitle.value, noteBody.value)">
+            Submit
+          </button>
         </div>
         <div class="control">
-          <button class="button is-link is-light">Cancel</button>
+          <button class="button is-link is-light" (click)="cancelButtonClick()">
+            Cancel
+          </button>
         </div>
       </div>
     </div>
   </div>
-</div> -->
-
-<app-card-details
-  title="New Note"
-  (cancelButton)="cancelButtonClick()"
-  (submitButton)="submitButtonClick($event)"
-></app-card-details>
+</div>
