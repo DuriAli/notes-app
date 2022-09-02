@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NoteModel } from 'src/app/models/note.model';
+import { NotesService } from 'src/app/services/notes.service';
 
 @Component({
   selector: 'app-new-note-page',
@@ -8,7 +8,7 @@ import { NoteModel } from 'src/app/models/note.model';
   styleUrls: ['./new-note-page.component.scss'],
 })
 export class NewNotePageComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private notesService: NotesService) {}
 
   ngOnInit(): void {}
 
@@ -17,7 +17,7 @@ export class NewNotePageComponent implements OnInit {
   }
 
   submitButtonClick(event: any) {
-    console.log('Clicked the new note page button submit');
-    console.log(event.noteBody);
+    this.notesService.createNoteItem(event);
+    this.router.navigate(['/']);
   }
 }

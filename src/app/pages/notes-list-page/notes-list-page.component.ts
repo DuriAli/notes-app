@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteModel } from 'src/app/models/note.model';
+import { NotesService } from 'src/app/services/notes.service';
 
 @Component({
   selector: 'app-notes-list-page',
@@ -9,28 +10,13 @@ import { NoteModel } from 'src/app/models/note.model';
 export class NotesListPageComponent implements OnInit {
   notes: NoteModel[] = [];
 
-  constructor() {
-    this.notes = [
-      new NoteModel(
-        'First Note',
-        'dkjafjlkdfjksdfjlk;dfjlkasdfjaskfjaskdfjslkdfjlk;sdfjlks;dfjlksdfjlksdfjlk;asdjflkasdjflksdfjlkasdfjlkasdjflksdjflksdjflkasdjflksdjflksdjdflkasdjsgfklnsdvklnxcvlkhkfkhjsdlkfjlksdfjkdjflkdjdakjgasdgjafk'
-      ),
-      new NoteModel(
-        'Second Note',
-        'dkjafjlkdfjksdfjlk;dfjlkasdfjaskfjaskdfjslkdfjlk;sdfjlks;dfjlksdfjlksdfjlk;asdjflkasdjflksdfjlkasdfjlkasdjflksdjflksdjflkasdjflksdjflksdjdflkasdjsgfklnsdvklnxcvlkhkfkhjsdlkfjlksdfjkdjflkdjdakjgasdgjafk'
-      ),
-      new NoteModel(
-        'Third Note',
-        'dkjafjlkdfjksdfjlk;dfjlkasdfjaskfjaskdfjslkdfjlk;sdfjlks;dfjlksdfjlksdfjlk;asdjflkasdjflksdfjlkasdfjlkasdjflksdjflksdjflkasdjflksdjflksdjdflkasdjsgfklnsdvklnxcvlkhkfkhjsdlkfjlksdfjkdjflkdjdakjgasdgjafk'
-      ),
-      new NoteModel(
-        'Fourth Note',
-        'dkjafjlkdfjksdfjlk;dfjlkasdfjaskfjaskdfjslkdfjlk;sdfjlks;dfjlksdfjlksdfjlk;asdjflkasdjflksdfjlkasdfjlkasdjflksdjflksdjflkasdjflksdjflksdjdflkasdjsgfklnsdvklnxcvlkhkfkhjsdlkfjlksdfjkdjflkdjdakjgasdgjafk'
-      ),
-    ];
-  }
+  constructor(private notesService: NotesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.notesService.getNotes().then((response) => {
+      this.notes = response;
+    });
+  }
 
   handle_CreateListButtonClick() {}
 }
